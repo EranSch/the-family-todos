@@ -5,21 +5,22 @@
 <body>
 	<div class="{{#if isNightMode}}night-mode{{/if}} container">
 		<header>
-			{{> loginButtons}}
-			{{#if currentUser}}
-				<label class="user-color" style="background-color:{{userColor}}">
-					<input type="color" value="{{userColor}}">
-				</label>
-				<label class="night-mode-switch">
+			<div class="toolbar">
+				{{#if currentUser}}
+					<label class="user-color" style="background-color:{{userColor}}">
+						<input type="color" value="{{userColor}}">
+					</label>
+				{{/if}}
+				{{> loginButtons}}
+				<label class="header-toggle night-mode-switch">
 					<input type="checkbox" value="{{isNightMode}}">
 					<i class="fa fa-lightbulb-o"></i>
 				</label>
-			{{/if}}
-			<div class="incomplete">{{incompleteCount}} Tasks Remaining</div>
-		<label class="hide-completed">
-			<input type="checkbox" checked="{{hideCompleted}}">
-			<i class="fa fa-minus-circle"></i>
-		</label>
+				<label class="header-toggle hide-completed">
+					<input type="checkbox" checked="{{hideCompleted}}">
+					<i class="fa fa-minus-circle"></i>
+				</label>
+			</div>
 			<h1>The FamilyTodos</h1>
 		</header>
 		{{#if currentUser}}

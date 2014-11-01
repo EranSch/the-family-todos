@@ -26,13 +26,31 @@ html{
 	}
 }
 
-.incomplete, .hide-completed{
-	clear: right;
+.toolbar {
+	padding: 5px 5px;
+	border-radius: 3px;
+	background-color: rgba(150, 150, 150, 0.32);
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
+}
+#login-buttons .login-link-and-dropdown-list{
+	position: static;
+}
+#login-dropdown-list {
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.night-mode-switch,
+.hide-completed{
 	float: right;
 }
 
 #login-buttons .login-link-and-dropdown-list a{
 	text-decoration: none;
+	.night-mode &{
+		color: rgb(142, 142, 142);
+	}
 }
 
 .user-color{
@@ -40,7 +58,8 @@ html{
 	height: 15px;
 	width: 15px;
 	position: relative;
-	top: 4px;
+	top: 3px;
+	margin-left:4px;
 	border-radius: 2px;
 	overflow: hidden;
 	input{
@@ -92,12 +111,26 @@ input[type="text"]{
 }
 
 .hide-completed {
-	margin-top: 10px;
+	margin: 1px 7px 0 0;
 	input {
 		display: none;
 		&:checked + i:before{
 			content: "\f055";
 		}
+	}
+}
+
+.header-toggle{
+	width: 14px;
+	cursor: pointer;
+	color: rgb(148, 135, 135);
+	text-shadow: -1px 0px rgb(239, 235, 235);
+	transition: 150ms all ease;
+	&:hover {
+		color: rgb(116, 111, 111);
+	}
+	.night-mode &{
+		text-shadow: -1px 0px #938F8F;
 	}
 }
 
