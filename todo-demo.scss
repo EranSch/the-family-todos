@@ -76,6 +76,9 @@ input[type="text"]{
 .night-mode-switch{
 	input{
 		display: none;
+		&:checked + i:before{
+			content: "\f185";
+		}
 	}
 	i{
 		position: relative;
@@ -88,6 +91,16 @@ input[type="text"]{
 	border-radius: 2px;
 }
 
+.hide-completed {
+	margin-top: 10px;
+	input {
+		display: none;
+		&:checked + i:before{
+			content: "\f055";
+		}
+	}
+}
+
 .task-title{
 	margin-left: 6px;
 }
@@ -97,12 +110,15 @@ input[type="text"]{
 	.task-title{
 		text-decoration: line-through;
 	}
+	.night-mode &{
+		color: rgb(74, 71, 71);
+	}
 }
 
 .delete{
 	float: right;
 	background-color: rgb(239, 153, 153);
-	padding: 1px 3px 3px 3px;
+	padding: 1px 2px 3px 3px;
 	cursor: pointer;
 	box-sizing: border-box;
 	height: 16px;
