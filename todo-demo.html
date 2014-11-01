@@ -1,0 +1,45 @@
+<head>
+	<title>todo-demo</title>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			{{> loginButtons}}
+			{{#if currentUser}}
+				<input type="color" class="user-color" value="{{userColor}}">
+			{{/if}}
+			<div class="incomplete">{{incompleteCount}} Tasks Remaining</div>
+		<label class="hide-completed">
+			<input type="checkbox" checked="{{hideCompleted}}">
+			Hide Completed
+		</label>
+			<h1>The FamilyTodos</h1>
+		</header>
+		{{#if currentUser}}
+			{{> inputForm}}
+		{{/if}}
+		<ul class="todo-list">
+			{{#each tasks}}
+				{{> task}}
+			{{/each}}
+		</ul>
+	</div>
+</body>
+
+<template name="task">
+	<li class="{{#if checked}}checked{{/if}}">
+		<input type="checkbox" class="toggle-checked" checked="{{checked}}">
+		<strong class="author-name" style="background-color:{{authorColor}}">
+			{{username}}
+		</strong>
+		<span class="task-title">{{text}}</span>
+		<button class="delete">X</button>
+	</li>
+</template>
+
+<template name="inputForm">
+	<form class="new-task">
+		<input type="text" name="text" placeholder="Add a new task">
+	</form>
+</template>

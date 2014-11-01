@@ -1,0 +1,67 @@
+html{
+	font-family: helvetica;
+	font-size: 15px;
+	color: #222;
+	transition: 100ms all ease-in;
+	box-sizing: border-box;
+}
+*{
+	transition: inherit;
+	box-sizing: inherit;
+}
+.incomplete,
+.hide-completed {
+	clear: right;
+	float: right;
+}
+#login-buttons .login-link-and-dropdown-list a {
+	text-decoration: none;
+}
+.todo-list{
+	padding-left: 0;
+}
+.todo-list li{
+	margin: 3px 0;
+	list-style-type: none;
+}
+input[type="text"] {
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	border: 1px dashed rgb(148, 140, 140);
+	color: rgb(179, 179, 179);
+}
+input[type="text"]:focus {
+	outline: none;
+	border-style: solid;
+	color: black;
+}
+.author-name {
+	padding: 1px 0px 0px 4px;
+	border-radius: 2px;
+}
+.task-title{
+	margin-left: 6px;
+}
+.checked {
+	color: rgb(184, 184, 184);
+}
+.checked .task-title{
+	text-decoration: line-through;
+}
+.delete{
+	float: right;
+	background-color: rgb(239, 153, 153);
+	padding: 1px 3px 3px 3px;
+	cursor: pointer;
+	box-sizing: border-box;
+	height: 16px;
+	border: none;
+	width: 16px;
+	border-radius: 100%;
+	color: white;
+}
+.delete:hover {
+	background-color: red;
+}
