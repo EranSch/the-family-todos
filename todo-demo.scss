@@ -1,54 +1,59 @@
-html,
-body {
+html, body {
 	padding: 0;
-	margin: 0;;
-	height: 100%
+	margin: 0;
+	height: 100%;
 }
-html{
+
+html {
 	font-family: helvetica;
 	font-size: 15px;
 	color: #222;
 	transition: 100ms all ease-in;
 	box-sizing: border-box;
+	* {
+		transition: inherit;
+		box-sizing: inherit;
+	}
 }
-*{
-	transition: inherit;
-	box-sizing: inherit;
-}
-.container{
+
+.container {
 	height: 100%;
 	padding: 15px;
+	&.night-mode {
+		background-color: rgb(47, 42, 42);
+		color: rgb(124, 62, 62);
+	}
 }
-.container.night-mode{
-	background-color: rgb(47, 42, 42);
-	color: rgb(124, 62, 62);
-}
-.incomplete,
-.hide-completed {
+
+.incomplete, .hide-completed {
 	clear: right;
 	float: right;
 }
+
 #login-buttons .login-link-and-dropdown-list a {
 	text-decoration: none;
 }
-.user-color{
+
+.user-color {
 	display: inline-block;
 	height: 15px;
 	width: 15px;
 	position: relative;
 	top: 4px;
 	border-radius: 2px;
+	input {
+		visibility: hidden;
+	}
 }
-.user-color input{
-	visibility: hidden;
-}
-.todo-list{
+
+.todo-list {
 	padding-left: 0;
+	li {
+		margin: 3px 0;
+		list-style-type: none;
+	}
 }
-.todo-list li{
-	margin: 3px 0;
-	list-style-type: none;
-}
+
 input[type="text"] {
 	width: 100%;
 	padding: 5px;
@@ -56,29 +61,34 @@ input[type="text"] {
 	border-radius: 2px;
 	border: 1px dashed rgb(148, 140, 140);
 	color: rgb(179, 179, 179);
+	&:focus {
+		outline: none;
+		border-style: solid;
+		color: black;
+	}
 }
-input[type="text"]:focus {
-	outline: none;
-	border-style: solid;
-	color: black;
-}
-.night-mode input[type="text"]{
+
+.night-mode input[type="text"] {
 	background-color: rgb(84, 80, 80);
 }
+
 .author-name {
 	padding: 1px 0px 0px 4px;
 	border-radius: 2px;
 }
-.task-title{
+
+.task-title {
 	margin-left: 6px;
 }
+
 .checked {
 	color: rgb(184, 184, 184);
+	.task-title {
+		text-decoration: line-through;
+	}
 }
-.checked .task-title{
-	text-decoration: line-through;
-}
-.delete{
+
+.delete {
 	float: right;
 	background-color: rgb(239, 153, 153);
 	padding: 1px 3px 3px 3px;
@@ -89,7 +99,7 @@ input[type="text"]:focus {
 	width: 16px;
 	border-radius: 100%;
 	color: white;
-}
-.delete:hover {
-	background-color: red;
+	&:hover {
+		background-color: red;
+	}
 }

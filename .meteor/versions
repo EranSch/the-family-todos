@@ -12,6 +12,7 @@ blaze@2.0.3
 boilerplate-generator@1.0.1
 callback-hook@1.0.1
 check@1.0.2
+chrismbeckett:fontawesome4@4.2.2
 ctl-helper@1.0.4
 ctl@1.0.2
 ddp@1.0.11
@@ -41,6 +42,7 @@ mongo@1.0.8
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
+particle4dev:sass@1.0.0
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3
