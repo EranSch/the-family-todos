@@ -69,8 +69,14 @@ input[type="text"] {
 	}
 }
 
-.night-mode input[type="text"] {
-	background-color: rgb(84, 80, 80);
+.night-mode-switch{
+	input{
+		display: none;
+	}
+	i{
+		position: relative;
+		top: 1px;
+	}
 }
 
 .author-name {
