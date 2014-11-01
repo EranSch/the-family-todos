@@ -7,7 +7,9 @@
 		<header>
 			{{> loginButtons}}
 			{{#if currentUser}}
-				<input type="color" class="user-color" value="{{userColor}}">
+				<label class="user-color" style="background-color:{{userColor}}">
+					<input type="color" value="{{userColor}}">
+				</label>
 				<label class="night-mode">
 					<input type="checkbox" value="{{isNightMode}}">
 					Night Mode

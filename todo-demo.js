@@ -56,7 +56,7 @@ if (Meteor.isClient) {
 		'change .night-mode input': function (event) {
 			Session.set('nightMode', event.target.checked);
 		},
-		'change .user-color': function(event){
+		'change .user-color input': function(event){
 			Meteor.call('setUserColor', event.target.value);
 		}
 	});

@@ -31,6 +31,17 @@ html{
 #login-buttons .login-link-and-dropdown-list a {
 	text-decoration: none;
 }
+.user-color{
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	position: relative;
+	top: 4px;
+	border-radius: 2px;
+}
+.user-color input{
+	visibility: hidden;
+}
 .todo-list{
 	padding-left: 0;
 }
