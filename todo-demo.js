@@ -53,7 +53,7 @@ if (Meteor.isClient) {
 		'change .hide-completed input': function (event) {
 			Session.set('hideCompleted', event.target.checked);
 		},
-		'change .night-mode input': function (event) {
+		'change .night-mode-switch input': function (event) {
 			Session.set('nightMode', event.target.checked);
 		},
 		'change .user-color input': function(event){
