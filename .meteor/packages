@@ -7,6 +7,6 @@ standard-app-packages
 accounts-ui
 accounts-password
 autopublish
-particle4dev:sass
 chrismbeckett:fontawesome4
+fourseven:scss
 
