@@ -3,11 +3,15 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="{{#if isNightMode}}night-mode{{/if}} container">
 		<header>
 			{{> loginButtons}}
 			{{#if currentUser}}
 				<input type="color" class="user-color" value="{{userColor}}">
+				<label class="night-mode">
+					<input type="checkbox" value="{{isNightMode}}">
+					Night Mode
+				</label>
 			{{/if}}
 			<div class="incomplete">{{incompleteCount}} Tasks Remaining</div>
 		<label class="hide-completed">

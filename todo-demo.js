@@ -30,7 +30,6 @@ Meteor.methods({
 });
 
 if (Meteor.isClient) {
-	Meteor.subscribe('allUsers');
 	Template.body.helpers({
 		tasks: function(){
 			var hide = Session.get('hideCompleted');
@@ -45,11 +44,17 @@ if (Meteor.isClient) {
 		},
 		userColor: function(){
 			return Meteor.user().profile.userColor;
+		},
+		isNightMode: function(){
+			return Session.get('nightMode')
 		}
 	});
 	Template.body.events({
 		'change .hide-completed input': function (event) {
 			Session.set('hideCompleted', event.target.checked);
+		},
+		'change .night-mode input': function (event) {
+			Session.set('nightMode', event.target.checked);
 		},
 		'change .user-color': function(event){
 			Meteor.call('setUserColor', event.target.value);
@@ -80,12 +85,6 @@ if (Meteor.isClient) {
 		}
 	});
 	Accounts.ui.config({
-		requestPermissions: {
-			// facebook: ['user_likes']
-		},
-		requestOfflineToken: {
-			// google: true
-		},
 		passwordSignupFields: 'USERNAME_ONLY'
 	});
 }
@@ -95,13 +94,9 @@ if (Meteor.isServer) {
 		// code to run on server at startup
 	});
 	Accounts.onCreateUser(function(options, user) {
-		console.log(options, user);
 		user.profile = {
 			userColor: '#00000'
 		}
 		return user;
-	});
-	Meteor.publish("allUsers", function () {
-		return Meteor.users.find({});
 	});
 }
