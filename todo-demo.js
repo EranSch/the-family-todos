@@ -30,6 +30,8 @@ Meteor.methods({
 });
 
 if (Meteor.isClient) {
+	Meteor.subscribe('tasks');
+	Meteor.subscribe('users');
 	Template.body.helpers({
 		tasks: function(){
 			var hide = Session.get('hideCompleted');
@@ -92,6 +94,15 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 	Meteor.startup(function () {
 		// code to run on server at startup
+	});
+	Meteor.publish('tasks', function () {
+		return Tasks.find();
+	});
+	Meteor.publish('users', function () {
+		return Users.find(
+			{},
+			{fields: {'profile': 1}}
+		);
 	});
 	Accounts.onCreateUser(function(options, user) {
 		user.profile = {

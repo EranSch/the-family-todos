@@ -6,7 +6,5 @@
 standard-app-packages
 accounts-ui
 accounts-password
-autopublish
 chrismbeckett:fontawesome4
 fourseven:scss
-
