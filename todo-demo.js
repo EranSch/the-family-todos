@@ -26,6 +26,13 @@ Meteor.methods({
 			Meteor.userId(),
 			{$set:{'profile.userColor': color}}
 		);
+	},
+	setPrivate: function(taskId, set){
+		var task = Tasks.findOne(taskId);
+		if(task.owner !== Meteor.userId()){
+			throw new Meteor.error('not-authorized');
+		}
+		Tasks.update(taskId, {$set:{private:set}});
 	}
 });
 
@@ -68,14 +75,20 @@ if (Meteor.isClient) {
 		},
 		'click .toggle-checked': function(){
 			Meteor.call('setChecked', this._id, !this.checked);
+		},
+		'click .private-toggle input': function(event){
+			Meteor.call('setPrivate', this._id, event.target.checked);
 		}
 	});
 	Template.task.helpers({
-		authorColor: function (){
+		authorColor: function(){
 			var author = Meteor.users.findOne({_id:this.owner});
 			if(author){
 				return author.profile.userColor;
 			}
+		},
+		isOwner: function(){
+			return this.owner === Meteor.userId();
 		}
 	});
 	Template.inputForm.events({
@@ -96,7 +109,12 @@ if (Meteor.isServer) {
 		// code to run on server at startup
 	});
 	Meteor.publish('tasks', function () {
-		return Tasks.find();
+		return Tasks.find({
+			$or: [
+				{private: {$ne: true}},
+				{owner: this.userId}
+			]
+		});
 	});
 	Meteor.publish('users', function () {
 		return Users.find(

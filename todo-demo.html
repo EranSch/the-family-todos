@@ -37,6 +37,13 @@
 <template name="task">
 	<li class="{{#if checked}}checked{{/if}}">
 		<input type="checkbox" class="toggle-checked" checked="{{checked}}">
+		{{#if isOwner}}
+			<label class="private-toggle" 
+			 title="Make {{#if private}}Public{{else}}Private{{/if}}">
+				<input type="checkbox" checked="{{private}}">
+				<i class="fa fa-unlock-alt"></i>
+			</label>
+		{{/if}}
 		<strong class="author-name" style="background-color:{{authorColor}}">
 			{{username}}
 		</strong>

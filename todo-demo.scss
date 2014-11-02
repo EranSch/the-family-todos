@@ -105,6 +105,16 @@ input[type="text"]{
 	}
 }
 
+.private-toggle {
+	cursor: pointer;
+	input {
+		display: none;
+		&:checked + i:before {
+			content: "\f023";
+		}
+	}
+}
+
 .author-name{
 	padding: 1px 0px 0px 4px;
 	border-radius: 2px;
