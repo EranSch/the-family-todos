@@ -38,7 +38,7 @@ Meteor.methods({
 
 if (Meteor.isClient) {
 	Meteor.subscribe('tasks');
-	Meteor.subscribe('users');
+	Meteor.subscribe("users");
 	Template.body.helpers({
 		tasks: function(){
 			var hide = Session.get('hideCompleted');
@@ -82,7 +82,8 @@ if (Meteor.isClient) {
 	});
 	Template.task.helpers({
 		authorColor: function(){
-			var author = Meteor.users.findOne({_id:this.owner});
+			var task = this;
+			var author = Meteor.users.findOne({_id:task.owner});
 			if(author){
 				return author.profile.userColor;
 			}
@@ -117,10 +118,9 @@ if (Meteor.isServer) {
 		});
 	});
 	Meteor.publish('users', function () {
-		return Users.find(
-			{},
-			{fields: {'profile': 1}}
-		);
+		return Meteor.users.find({},{
+			fields: {'profile.userColor': 1}
+		});
 	});
 	Accounts.onCreateUser(function(options, user) {
 		user.profile = {
