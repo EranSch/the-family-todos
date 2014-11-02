@@ -73,7 +73,7 @@ if (Meteor.isClient) {
 		'click .delete': function(){
 			Meteor.call('deleteTask', this._id);
 		},
-		'click .toggle-checked': function(){
+		'click .done-toggle input': function(){
 			Meteor.call('setChecked', this._id, !this.checked);
 		},
 		'click .private-toggle input': function(event){

@@ -36,7 +36,10 @@
 
 <template name="task">
 	<li class="{{#if checked}}checked{{/if}}">
-		<input type="checkbox" class="toggle-checked" checked="{{checked}}">
+		<label class="done-toggle">
+			<input type="checkbox" checked="{{checked}}">
+			<i class="fa fa-square-o"></i>
+		</label>
 		{{#if isOwner}}
 			<label class="private-toggle" 
 			 title="Make {{#if private}}Public{{else}}Private{{/if}}">

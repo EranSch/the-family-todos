@@ -71,7 +71,12 @@ html{
 	padding-left: 0;
 	li{
 		margin: 3px 0;
+		padding: 3px 6px 3px 8px;
+		border-radius: 2px;
 		list-style-type: none;
+		&:nth-child(even) {
+			background-color: rgba(140, 140, 140, 0.1);
+		}
 	}
 }
 
@@ -106,6 +111,7 @@ input[type="text"]{
 }
 
 .private-toggle {
+	margin-right: 5px;
 	cursor: pointer;
 	input {
 		display: none;
@@ -144,6 +150,20 @@ input[type="text"]{
 	}
 }
 
+.done-toggle{
+	font-size: 1.2em;
+	position: relative;
+	top: 1px;
+	min-width: 20px;
+	display: inline-block;
+	input{
+		display: none;
+		&:checked + i:before{
+			content: "\f046"
+		}
+	}
+}
+
 .task-title{
 	margin-left: 6px;
 }
@@ -159,15 +179,17 @@ input[type="text"]{
 }
 
 .delete{
+	width: 14px;
+	height: 16px;
 	float: right;
-	background-color: rgb(239, 153, 153);
-	padding: 1px 2px 3px 3px;
+	padding: 0px 1px 3px 2px;
+	margin-top: 3px;
+	border-radius: 3px;
+	font-size: 0.9em;
+	background-color: #ef9999;
 	cursor: pointer;
 	box-sizing: border-box;
-	height: 16px;
 	border: none;
-	width: 16px;
-	border-radius: 100%;
 	color: white;
 	&:hover{
 		background-color: red;
