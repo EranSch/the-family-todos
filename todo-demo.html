@@ -12,11 +12,11 @@
 					</label>
 				{{/if}}
 				{{> loginButtons}}
-				<label class="header-toggle night-mode-switch">
+				<label class="header-toggle night-mode-switch" title="Night Mode">
 					<input type="checkbox" value="{{isNightMode}}">
 					<i class="fa fa-lightbulb-o"></i>
 				</label>
-				<label class="header-toggle hide-completed">
+				<label class="header-toggle hide-completed" title="Hide Completed">
 					<input type="checkbox" checked="{{hideCompleted}}">
 					<i class="fa fa-minus-circle"></i>
 				</label>
@@ -51,7 +51,7 @@
 			{{username}}
 		</strong>
 		<span class="task-title">{{text}}</span>
-		<button class="delete"><i class="fa fa-trash"></i></button>
+		<button title="Delete Task" class="delete"><i class="fa fa-trash"></i></button>
 	</li>
 </template>
 
